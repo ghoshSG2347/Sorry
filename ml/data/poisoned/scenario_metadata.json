@@ -1,0 +1,17 @@
+{
+  "S1": {
+    "contributor": "C3",
+    "attack": "backdoor",
+    "poison_fraction": 0.08,
+    "poison_count": 320,
+    "target_class": 0,
+    "patch_size": 3
+  },
+  "S2": {
+    "contributor": "C5",
+    "attack": "honest-but-noisy-decoy",
+    "noise_fraction": 0.1,
+    "noise_count": 400,
+    "brightness_factor": 1.1
+  }
+}

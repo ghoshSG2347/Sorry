@@ -1,0 +1,95 @@
+{
+  "experiment": "multi_seed_statistical_analysis",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "baseline": {
+    "asr": {
+      "mean": 0.9940000000000001,
+      "std": 0.001485180567093582
+    },
+    "clean_accuracy": {
+      "mean": 0.9047000000000001,
+      "std": 0.0015769168230019969
+    }
+  },
+  "contributors": {
+    "C1": {
+      "delta_asr": {
+        "mean": -0.0012592592592592562,
+        "std": 0.0030392945539153425
+      },
+      "clean_accuracy_drop": {
+        "mean": 0.010600000000000017,
+        "std": 0.003612016980395651
+      },
+      "causal_threshold": 0.49700000000000005,
+      "cleared_threshold": 0.09940000000000002,
+      "statistical_threshold": 0.006078589107830685,
+      "max_clean_accuracy_drop": 0.02,
+      "verdict": "CLEARED"
+    },
+    "C2": {
+      "delta_asr": {
+        "mean": 0.0020000000000000018,
+        "std": 0.0019958805311566857
+      },
+      "clean_accuracy_drop": {
+        "mean": 0.010600000000000017,
+        "std": 0.002141650453894527
+      },
+      "causal_threshold": 0.49700000000000005,
+      "cleared_threshold": 0.09940000000000002,
+      "statistical_threshold": 0.003991761062313371,
+      "max_clean_accuracy_drop": 0.02,
+      "verdict": "CLEARED"
+    },
+    "C3": {
+      "delta_asr": {
+        "mean": 0.9868148148148149,
+        "std": 0.0009615374063516722
+      },
+      "clean_accuracy_drop": {
+        "mean": 0.008633333333333345,
+        "std": 0.0018116904322268126
+      },
+      "causal_threshold": 0.49700000000000005,
+      "cleared_threshold": 0.09940000000000002,
+      "statistical_threshold": 0.0019230748127033444,
+      "max_clean_accuracy_drop": 0.02,
+      "verdict": "CAUSALLY IMPLICATED"
+    },
+    "C4": {
+      "delta_asr": {
+        "mean": -0.000296296296296313,
+        "std": 0.001587848230387088
+      },
+      "clean_accuracy_drop": {
+        "mean": 0.01103333333333334,
+        "std": 0.0035742909164693513
+      },
+      "causal_threshold": 0.49700000000000005,
+      "cleared_threshold": 0.09940000000000002,
+      "statistical_threshold": 0.003175696460774176,
+      "max_clean_accuracy_drop": 0.02,
+      "verdict": "CLEARED"
+    },
+    "C5": {
+      "delta_asr": {
+        "mean": 0.005925925925925927,
+        "std": 0.0037376224626793383
+      },
+      "clean_accuracy_drop": {
+        "mean": 0.007966666666666714,
+        "std": 0.004196294661828318
+      },
+      "causal_threshold": 0.49700000000000005,
+      "cleared_threshold": 0.09940000000000002,
+      "statistical_threshold": 0.007475244925358677,
+      "max_clean_accuracy_drop": 0.02,
+      "verdict": "CLEARED"
+    }
+  }
+}

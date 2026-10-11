@@ -1,0 +1,31 @@
+{
+  "experiment": "PoisonTrace S1 + S2",
+  "baseline": {
+    "clean_accuracy_mean": 0.9047,
+    "clean_accuracy_std": 0.0019,
+    "asr_mean": 0.9940,
+    "asr_std": 0.0018
+  },
+  "contributors": {
+    "C1": {
+      "delta_asr": -0.0013,
+      "verdict": "CLEARED"
+    },
+    "C2": {
+      "delta_asr": 0.0020,
+      "verdict": "CLEARED"
+    },
+    "C3": {
+      "delta_asr": 0.9868,
+      "verdict": "CAUSALLY IMPLICATED"
+    },
+    "C4": {
+      "delta_asr": -0.0003,
+      "verdict": "CLEARED"
+    },
+    "C5": {
+      "delta_asr": 0.0059,
+      "verdict": "CLEARED"
+    }
+  }
+}

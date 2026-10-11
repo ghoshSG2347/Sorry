@@ -1,0 +1,113 @@
+{
+  "created_at": "2026-10-11T01:38:41.712497",
+  "data": {
+    "project": "PoisonTrace",
+    "individual_attribution": {
+      "experiment": "leave_one_out",
+      "seed": 42,
+      "contributors": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "baseline": {
+        "clean_accuracy": 0.903,
+        "asr": 0.9944444444444445
+      },
+      "results": {
+        "C1": {
+          "contributor": 1,
+          "asr_all": 0.9944444444444445,
+          "asr_without": 0.9964444444444445,
+          "delta_asr": -0.0020000000000000018,
+          "clean_accuracy_all": 0.903,
+          "clean_accuracy_without": 0.8887,
+          "clean_accuracy_drop": 0.01429999999999998,
+          "causal_threshold": 0.49722222222222223,
+          "cleared_threshold": 0.09944444444444445,
+          "statistical_threshold": 0.7897944348896845,
+          "verdict": "CLEARED"
+        },
+        "C2": {
+          "contributor": 2,
+          "asr_all": 0.9944444444444445,
+          "asr_without": 0.99,
+          "delta_asr": 0.004444444444444473,
+          "clean_accuracy_all": 0.903,
+          "clean_accuracy_without": 0.892,
+          "clean_accuracy_drop": 0.01100000000000001,
+          "causal_threshold": 0.49722222222222223,
+          "cleared_threshold": 0.09944444444444445,
+          "statistical_threshold": 0.7897944348896845,
+          "verdict": "CLEARED"
+        },
+        "C3": {
+          "contributor": 3,
+          "asr_all": 0.9944444444444445,
+          "asr_without": 0.006555555555555556,
+          "delta_asr": 0.9878888888888889,
+          "clean_accuracy_all": 0.903,
+          "clean_accuracy_without": 0.892,
+          "clean_accuracy_drop": 0.01100000000000001,
+          "causal_threshold": 0.49722222222222223,
+          "cleared_threshold": 0.09944444444444445,
+          "statistical_threshold": 0.7897944348896845,
+          "verdict": "CAUSALLY IMPLICATED"
+        },
+        "C4": {
+          "contributor": 4,
+          "asr_all": 0.9944444444444445,
+          "asr_without": 0.9966666666666667,
+          "delta_asr": -0.0022222222222222365,
+          "clean_accuracy_all": 0.903,
+          "clean_accuracy_without": 0.8966,
+          "clean_accuracy_drop": 0.006400000000000072,
+          "causal_threshold": 0.49722222222222223,
+          "cleared_threshold": 0.09944444444444445,
+          "statistical_threshold": 0.7897944348896845,
+          "verdict": "CLEARED"
+        },
+        "C5": {
+          "contributor": 5,
+          "asr_all": 0.9944444444444445,
+          "asr_without": 0.992,
+          "delta_asr": 0.0024444444444444713,
+          "clean_accuracy_all": 0.903,
+          "clean_accuracy_without": 0.9005,
+          "clean_accuracy_drop": 0.0025000000000000577,
+          "causal_threshold": 0.49722222222222223,
+          "cleared_threshold": 0.09944444444444445,
+          "statistical_threshold": 0.7897944348896845,
+          "verdict": "CLEARED"
+        }
+      }
+    },
+    "group_attribution": {
+      "experiment": "group_attribution",
+      "group": [
+        2,
+        3
+      ],
+      "result": {
+        "group": [
+          2,
+          3
+        ],
+        "asr_all": 0.9932222222222222,
+        "asr_without_group": 0.021444444444444443,
+        "delta_asr": 0.9717777777777777,
+        "clean_accuracy_all": 0.9065,
+        "clean_accuracy_without_group": 0.8738,
+        "clean_accuracy_drop": 0.03269999999999995
+      },
+      "verdict": {
+        "delta_asr": 0.9717777777777777,
+        "implicated_threshold": 0.4966111111111111,
+        "cleared_threshold": 0.09932222222222223,
+        "verdict": "COLLUDING GROUP IMPLICATED"
+      }
+    }
+  }
+}

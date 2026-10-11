@@ -1,0 +1,35 @@
+experiment: poisontrace_j2
+
+seeds:
+  - 42
+  - 123
+  - 2024
+
+contributors:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+
+training:
+  epochs: 8
+  batch_size: 128
+  learning_rate: 0.001
+  device: cpu
+
+attack:
+  poison_fraction: 0.08
+  target_class: 0
+  patch_size: 3
+
+decoy:
+  contributor: 5
+  label_noise_fraction: 0.10
+  brightness_factor: 1.10
+
+evaluation:
+  causal_fraction: 0.50
+  cleared_fraction: 0.10
+  statistical_multiplier: 2.0
+  clean_accuracy_drop_limit: 0.02

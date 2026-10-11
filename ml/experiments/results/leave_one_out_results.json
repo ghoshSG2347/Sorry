@@ -1,0 +1,28 @@
+{
+    "all_contributors": {
+        "clean_accuracy": 0.9030,
+        "asr": 0.9944
+    },
+    "leave_one_out": {
+        "C1": {
+            "clean_accuracy": 0.8887,
+            "asr": 0.9964444444444445
+        },
+        "C2": {
+            "clean_accuracy": 0.8920,
+            "asr": 0.9900
+        },
+        "C3": {
+            "clean_accuracy": 0.8920,
+            "asr": 0.0066
+        },
+        "C4": {
+            "clean_accuracy": 0.8966,
+            "asr": 0.9966666666666667
+        },
+        "C5": {
+            "clean_accuracy": 0.9005,
+            "asr": 0.9920
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{
+  "attack_type": "collusion",
+  "group": [
+    2,
+    3
+  ],
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "baseline_asr": {
+    "mean": 0.994037037037037,
+    "std": 0.0013946792876861134
+  },
+  "without_C2_asr": {
+    "mean": 0.9899629629629629,
+    "std": 0.0028865137434664566
+  },
+  "without_C3_asr": {
+    "mean": 0.9922222222222222,
+    "std": 0.003179150182796285
+  },
+  "without_C2_C3_asr": {
+    "mean": 0.014148148148148148,
+    "std": 0.005987870684648827
+  },
+  "delta_asr_without_C2": {
+    "mean": 0.0040740740740740815,
+    "std": 0.002723670564570378
+  },
+  "delta_asr_without_C3": {
+    "mean": 0.0018148148148148247,
+    "std": 0.0035327198784178785
+  },
+  "delta_asr_without_C2_C3": {
+    "mean": 0.9798888888888889,
+    "std": 0.006002057260475367
+  },
+  "clean_accuracy_without_C2_C3": {
+    "mean": 0.8827333333333334,
+    "std": 0.007477224678240503
+  },
+  "clean_accuracy_drop_without_C2_C3": {
+    "mean": 0.021499999999999964,
+    "std": 0.008392059739221748
+  },
+  "individual_C2_removal_preserves_backdoor": true,
+  "individual_C3_removal_preserves_backdoor": true,
+  "joint_C2_C3_removal_removes_backdoor": true,
+  "verdict": "COLLUSIVE GROUP IMPLICATED"
+}
