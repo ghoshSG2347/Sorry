@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "replay-s1-s2-combined-multiseed-frozen",
+  "scenario_id": "S1_S2_COMBINED",
+  "mode": "replay",
+  "status": "SUCCESS",
+  "timestamp": "2026-10-12T00:00:00Z",
+  "execution_time_seconds": 0.0,
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "protocol_ref": {
+    "protocol_id": "POISONTRACE_PROTOCOL_V1",
+    "protocol_version": "1.0.0",
+    "protocol_hash": "133f229e5f2e7376ee62ca264cbb8ef46ecfb5dc9b9ed6f1c4fca035e35c94a9"
+  },
+  "provenance": {
+    "source_file": "ml/experiments/results/engine/multi_seed_forensic_verdict.json",
+    "source_file_sha256": "4c7bf83cb4cd33e3c85bfddc55d2c976b08a46b4e116158b42739632130c1a2b",
+    "generator_module": "src.engine.verdict.analyze_multiseed",
+    "upstream_experiment_file": "ml/experiments/results/engine/multi_seed_engine.json"
+  },
+  "baseline": {
+    "clean_accuracy": {
+      "mean": 0.9047000000000001,
+      "std": 0.0015769168230019969
+    },
+    "asr": {
+      "mean": 0.9940000000000001,
+      "std": 0.001485180567093582
+    }
+  },
+  "contributors": {
+    "C1": {
+      "contributor_id": "C1",
+      "delta_asr": {
+        "mean": -0.0012592592592592562,
+        "std": 0.0030392945539153425
+      },
+      "clean_accuracy_drop": {
+        "mean": 0.010600000000000017,
+        "std": 0.003612016980395651
+      },
+      "asr_without": {
+        "mean": 0.9952592592592593,
+        "std": 0.0017552586090478271
+      },
+      "clean_accuracy_without": {
+        "mean": 0.8941,
+        "std": 0.005187163643713836
+      },
+      "verdict": "CLEARED",
+      "verdict_details": {
+        "causal_threshold": 0.49700000000000005,
+        "cleared_threshold": 0.09940000000000002,
+        "statistical_threshold": 0.006078589107830685,
+        "max_clean_accuracy_drop": 0.02,
+        "passes_causal_threshold": false,
+        "passes_statistical_threshold": false,
+        "passes_clean_accuracy_guard": true
+      }
+    },
+    "C2": {
+      "contributor_id": "C2",
+      "delta_asr": {
+        "mean": 0.0020000000000000018,
+        "std": 0.0019958805311566857
+      },
+      "clean_accuracy_drop": {
+        "mean": 0.010600000000000017,
+        "std": 0.002141650453894527
+      },
+      "asr_without": {
+        "mean": 0.992,
+        "std": 0.001485180567093582
+      },
+      "clean_accuracy_without": {
+        "mean": 0.8941,
+        "std": 0.003476588366008658
+      },
+      "verdict": "CLEARED",
+      "verdict_details": {
+        "causal_threshold": 0.49700000000000005,
+        "cleared_threshold": 0.09940000000000002,
+        "statistical_threshold": 0.003991761062313371,
+        "max_clean_accuracy_drop": 0.02,
+        "passes_causal_threshold": false,
+        "passes_statistical_threshold": false,
+        "passes_clean_accuracy_guard": true
+      }
+    },
+    "C3": {
+      "contributor_id": "C3",
+      "delta_asr": {
+        "mean": 0.9868148148148149,
+        "std": 0.0009615374063516722
+      },
+      "clean_accuracy_drop": {
+        "mean": 0.008633333333333345,
+        "std": 0.0018116904322268126
+      },
+      "asr_without": {
+        "mean": 0.007185185185185186,
+        "std": 0.0020892303372104376
+      },
+      "clean_accuracy_without": {
+        "mean": 0.8960666666666667,
+        "std": 0.003347967874530586
+      },
+      "verdict": "CAUSALLY IMPLICATED",
+      "verdict_details": {
+        "causal_threshold": 0.49700000000000005,
+        "cleared_threshold": 0.09940000000000002,
+        "statistical_threshold": 0.0019230748127033444,
+        "max_clean_accuracy_drop": 0.02,
+        "passes_causal_threshold": true,
+        "passes_statistical_threshold": true,
+        "passes_clean_accuracy_guard": true
+      }
+    },
+    "C4": {
+      "contributor_id": "C4",
+      "delta_asr": {
+        "mean": -0.0002962962962963073,
+        "std": 0.0015878473215887295
+      },
+      "clean_accuracy_drop": {
+        "mean": 0.011033333333333338,
+        "std": 0.0035738245930686415
+      },
+      "asr_without": {
+        "mean": 0.9942962962962963,
+        "std": 0.0012297123985169428
+      },
+      "clean_accuracy_without": {
+        "mean": 0.8936666666666667,
+        "std": 0.004868492808073587
+      },
+      "verdict": "CLEARED",
+      "verdict_details": {
+        "causal_threshold": 0.49700000000000005,
+        "cleared_threshold": 0.09940000000000002,
+        "statistical_threshold": 0.003175694643177459,
+        "max_clean_accuracy_drop": 0.02,
+        "passes_causal_threshold": false,
+        "passes_statistical_threshold": false,
+        "passes_clean_accuracy_guard": true
+      }
+    },
+    "C5": {
+      "contributor_id": "C5",
+      "delta_asr": {
+        "mean": 0.0059259259259259275,
+        "std": 0.003738018260655455
+      },
+      "clean_accuracy_drop": {
+        "mean": 0.007966666666666663,
+        "std": 0.0041961622678082695
+      },
+      "asr_without": {
+        "mean": 0.9880740740740741,
+        "std": 0.0026219810141680196
+      },
+      "clean_accuracy_without": {
+        "mean": 0.8967333333333334,
+        "std": 0.004731455026466952
+      },
+      "verdict": "CLEARED",
+      "verdict_details": {
+        "causal_threshold": 0.49700000000000005,
+        "cleared_threshold": 0.09940000000000002,
+        "statistical_threshold": 0.00747603652131091,
+        "max_clean_accuracy_drop": 0.02,
+        "passes_causal_threshold": false,
+        "passes_statistical_threshold": false,
+        "passes_clean_accuracy_guard": true
+      }
+    }
+  },
+  "artifact_hashes": {
+    "C1_clean_shard": "8f8586faa76f86c44e43af70f6bea69b9f06acc39e5d60ac2ad91a38bbe21798",
+    "C2_clean_shard": "8622c9dc9c667ba0c9cb0344eb1c0a87093a61e420f1bbcf023b658a4077c246",
+    "C3_clean_shard": "d27130235ddef6fcf3a8bccf24c9839931946bec95625ebd1229f2346fe40a7a",
+    "C4_clean_shard": "6368115d82c072d15083bc231f43978435ffb6967b749ff3e1ecc3e4762954d3",
+    "C5_clean_shard": "736a17c3cd3aad6db2988d0be5f7311dd580fcd7410ab5cb5dd090290e6d108b",
+    "C3_poisoned_shard": "2a87c2f38fc3f235e3ba7913d46906b3d171cb005dd2549ff243c96fa1835ca4",
+    "C5_noisy_decoy_shard": "b6b1789a909c970e31f0c81564eaf05ea07cc7617675267dcd42f30f2ab86631",
+    "scenario_metadata": "9332b15d6680f593d9342f52d3e956b60ae600b40c83fd20a48ac02efb4d2e2f",
+    "baseline_checkpoint": "c6d57a738c49d473d14caa81efedb0cb65e0dc43e2c610099244da2aca303d5e"
+  },
+  "limitations": [
+    "Evaluated specifically on synthetic Fashion-MNIST with fixed 3x3 patch trigger in bottom-right corner.",
+    "Targeted ASR evaluates response to a known trigger; does not prove absence of arbitrary backdoors.",
+    "2xSD stability rule is an empirical heuristic rather than formal parametric hypothesis test."
+  ],
+  "error_message": null
+}

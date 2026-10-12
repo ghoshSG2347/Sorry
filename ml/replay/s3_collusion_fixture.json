@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "replay-s3-collusion-multiseed-frozen",
+  "scenario_id": "S3_COLLUSION_C2_C3",
+  "mode": "replay",
+  "status": "SUCCESS",
+  "timestamp": "2026-10-12T00:00:00Z",
+  "execution_time_seconds": 0.0,
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "protocol_ref": {
+    "protocol_id": "POISONTRACE_PROTOCOL_V1",
+    "protocol_version": "1.0.0",
+    "protocol_hash": "133f229e5f2e7376ee62ca264cbb8ef46ecfb5dc9b9ed6f1c4fca035e35c94a9"
+  },
+  "provenance": {
+    "source_file": "ml/experiments/results/engine/multi_seed_collusion_verdict.json",
+    "source_file_sha256": "1722e600d9ac76744114de00f73efb61ebdb771780f462a453dd10eb0b94f58e",
+    "generator_module": "src.engine.verdict.multi_seed_collusion_verdict",
+    "upstream_experiment_file": "ml/experiments/results/engine/multi_seed_collusion_individual.json",
+    "upstream_file_sha256": "967c6c80beaf80a51bc2cbd40dc77463b94e3aa0ecccc2867b2caad9e8395c2e"
+  },
+  "baseline": {
+    "clean_accuracy": {
+      "mean": 0.9042333333333334,
+      "std": 0.002018800523963496
+    },
+    "asr": {
+      "mean": 0.994037037037037,
+      "std": 0.0013946792876861134
+    }
+  },
+  "collusion_group": {
+    "group": [
+      2,
+      3
+    ],
+    "without_C2_asr": {
+      "mean": 0.9899629629629629,
+      "std": 0.0028865137434664566
+    },
+    "without_C3_asr": {
+      "mean": 0.9922222222222222,
+      "std": 0.003179150182796285
+    },
+    "without_group_asr": {
+      "mean": 0.014148148148148148,
+      "std": 0.005987870684648827
+    },
+    "delta_asr_without_C2": {
+      "mean": 0.0040740740740740815,
+      "std": 0.002723670564570378
+    },
+    "delta_asr_without_C3": {
+      "mean": 0.0018148148148148247,
+      "std": 0.0035327198784178785
+    },
+    "delta_asr_without_group": {
+      "mean": 0.9798888888888889,
+      "std": 0.006002057260475367
+    },
+    "clean_accuracy_without_group": {
+      "mean": 0.8827333333333334,
+      "std": 0.007477224678240503
+    },
+    "clean_accuracy_drop_without_group": {
+      "mean": 0.021499999999999964,
+      "std": 0.008392059739221748
+    },
+    "individual_C2_removal_preserves_backdoor": true,
+    "individual_C3_removal_preserves_backdoor": true,
+    "joint_removal_removes_backdoor": true,
+    "verdict": "COLLUSIVE GROUP IMPLICATED"
+  },
+  "artifact_hashes": {
+    "C1_clean_shard": "8f8586faa76f86c44e43af70f6bea69b9f06acc39e5d60ac2ad91a38bbe21798",
+    "C2_collusion_shard": "627fabea242ed8d41fde9b2a3f500d75d9b1b6935eb610414240448408d39a7a",
+    "C3_collusion_shard": "9179e6a39e2ca6c2e35798317aec9d943285537884704f887ac04f895cb47113",
+    "C4_clean_shard": "6368115d82c072d15083bc231f43978435ffb6967b749ff3e1ecc3e4762954d3",
+    "C5_clean_shard": "736a17c3cd3aad6db2988d0be5f7311dd580fcd7410ab5cb5dd090290e6d108b",
+    "collusion_metadata": "94dcef03c90a59630ff3a36d576dcd3f6fd6201bc0305534ed47fed21e53d61d"
+  },
+  "limitations": [
+    "Evaluated specifically on synthetic Fashion-MNIST with C2 (seed 102) and C3 (seed 103) colluding.",
+    "Collusion verdict verifies joint-necessity against known trigger, but does not enforce a clean-accuracy safety guard (observed drop 0.0215 exceeds the individual 0.02 guard).",
+    "Each colluder independently receives a full 8% backdoor (duplicate payload rather than split trigger)."
+  ],
+  "error_message": null
+}

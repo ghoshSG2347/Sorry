@@ -1,0 +1,90 @@
+{
+  "protocol_version": "1.0.0",
+  "protocol_id": "POISONTRACE_PROTOCOL_V1",
+  "name": "PoisonTrace Contributor Attribution and Forensic Auditing Protocol",
+  "created_at": "2026-10-12T00:00:00Z",
+  "dataset": {
+    "name": "Fashion-MNIST",
+    "classes": 10,
+    "input_shape": [1, 28, 28],
+    "clean_shards": 5,
+    "samples_per_shard": 4000,
+    "total_training_samples": 20000,
+    "test_samples": 10000
+  },
+  "model": {
+    "architecture": "BaselineCNN",
+    "parameter_count": 1701130,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "batch_size": 128,
+    "epochs": 8,
+    "device": "cpu"
+  },
+  "attack": {
+    "target_class": 0,
+    "patch_size": 3,
+    "trigger_location": "bottom_right_3x3",
+    "trigger_tensor_value": 1.0,
+    "trigger_raw_pixel_value": 255,
+    "s1_poison_fraction": 0.08,
+    "s1_poison_count": 320,
+    "s2_noise_fraction": 0.10,
+    "s2_noise_count": 400,
+    "s2_brightness_factor": 1.10,
+    "s3_collusion_poison_fraction_each": 0.08,
+    "s3_collusion_poison_count_each": 320
+  },
+  "evaluation_metrics": {
+    "clean_accuracy": {
+      "definition": "correct_predictions / total_test_samples",
+      "test_samples": 10000,
+      "unit": "ratio_0_to_1"
+    },
+    "attack_success_rate": {
+      "definition": "target_class_predictions / non_target_test_samples",
+      "eligible_samples": 9000,
+      "unit": "ratio_0_to_1"
+    },
+    "delta_asr": {
+      "definition": "baseline_asr - without_contributor_asr",
+      "unit": "delta_ratio"
+    },
+    "clean_accuracy_drop": {
+      "definition": "baseline_clean_accuracy - without_contributor_clean_accuracy",
+      "unit": "delta_ratio"
+    }
+  },
+  "individual_attribution_rules": {
+    "seeds": [42, 123, 2024],
+    "causal_threshold_multiplier": 0.50,
+    "cleared_threshold_multiplier": 0.10,
+    "statistical_threshold_std_multiplier": 2.0,
+    "max_clean_accuracy_drop": 0.02,
+    "verdict_labels": {
+      "implicated": "CAUSALLY IMPLICATED",
+      "cleared": "CLEARED",
+      "inconclusive": "INCONCLUSIVE"
+    },
+    "decision_logic": {
+      "causal": "delta_asr_mean >= 0.50 * baseline_asr_mean AND delta_asr_mean > 2.0 * delta_asr_std AND clean_accuracy_drop_mean <= 0.02",
+      "cleared": "delta_asr_mean < 0.10 * baseline_asr_mean",
+      "inconclusive": "default when neither causal nor cleared condition is met"
+    }
+  },
+  "collusion_attribution_rules": {
+    "seeds": [42, 123, 2024],
+    "group": [2, 3],
+    "individual_preservation_threshold": 0.90,
+    "joint_elimination_threshold": 0.10,
+    "clean_accuracy_guard_enforced": false,
+    "verdict_labels": {
+      "implicated": "COLLUSIVE GROUP IMPLICATED",
+      "not_confirmed": "COLLUSION NOT CONFIRMED"
+    },
+    "decision_logic": {
+      "implicated": "without_C2_asr_mean > 0.90 AND without_C3_asr_mean > 0.90 AND without_C2_C3_asr_mean < 0.10",
+      "not_confirmed": "default when criteria not met"
+    }
+  }
+}
