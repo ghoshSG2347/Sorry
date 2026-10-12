@@ -42,6 +42,13 @@ def build_training_dataset(
                     scenario="clean",
                 )
 
+        elif scenario in ("clean", "clean_all"):
+
+            dataset = ContributorDataset(
+                contributor_id,
+                scenario="clean",
+            )
+
         else:
 
             if contributor_id in (3, 5):
