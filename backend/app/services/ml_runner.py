@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import json
 import logging
+import sys
 import time
 import uuid
 from datetime import datetime, timezone
@@ -25,6 +26,19 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
 logger = logging.getLogger("poisontrace.ml_runner")
+
+# Auto-register ml/ directory into sys.path so internal src.* packages resolve seamlessly
+_MODULE_PATH = Path(__file__).resolve()
+for _parent in [_MODULE_PATH] + list(_MODULE_PATH.parents):
+    _candidate_ml = _parent / "ml"
+    if (_candidate_ml / "src").is_dir():
+        if str(_candidate_ml) not in sys.path:
+            sys.path.insert(0, str(_candidate_ml))
+        break
+    if _parent.name == "ml" and (_parent / "src").is_dir():
+        if str(_parent) not in sys.path:
+            sys.path.insert(0, str(_parent))
+        break
 
 # Current schema version implemented by this adapter
 SCHEMA_VERSION: str = "1.0.0"
@@ -81,6 +95,13 @@ class MLRunner:
 
         self.replay_dir = self.ml_root / "replay"
         self.protocol_path = self.replay_dir / "protocol.json"
+        self._ensure_sys_path()
+
+    def _ensure_sys_path(self) -> None:
+        """Ensure ml/ directory is on sys.path so 'src.*' packages resolve cleanly."""
+        ml_path = str(self.ml_root)
+        if ml_path not in sys.path:
+            sys.path.insert(0, ml_path)
 
     def _locate_ml_root(self) -> Path:
         """Find the ml/ directory regardless of whether invoked from backend/ or ml/."""
@@ -326,6 +347,7 @@ class MLRunner:
         lr: float,
     ) -> Dict[str, Any]:
         """Perform live multi-seed leave-one-out attribution."""
+        self._ensure_sys_path()
         from src.engine.prove.leave_one_out import LeaveOneOutEngine
         from src.engine.verdict.multiseed_verdict import MultiSeedVerdictEngine
         import numpy as np
@@ -451,6 +473,7 @@ class MLRunner:
         lr: float,
     ) -> Dict[str, Any]:
         """Perform live multi-seed collusion group evaluation."""
+        self._ensure_sys_path()
         from src.engine.prove.group_test import GroupAttributionEngine
         from src.engine.probes.metrics import evaluate_model
         import numpy as np
